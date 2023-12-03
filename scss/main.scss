@@ -1,0 +1,134 @@
+// Variables
+$fontFamily: "Merriweather Sans";
+$colorText_1: #ffffff;
+$colorText_2: #ffffffb3;
+$colorText_3: #f4623a;
+$myGradient: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url(../images/bg-header.jpg);
+$myTransition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+// Mixins
+@mixin reset-list {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style-type: none;
+  box-sizing: border-box;
+}
+
+@mixin horizontal-rule {
+  max-width: 3.25rem;
+  height: 0.2rem;
+  margin: 1.5rem auto;
+  opacity: 1;
+  background-color: $colorText_3;
+}
+
+@mixin button {
+  padding: 20px 36px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  font-family: $fontFamily;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 10rem;
+  transition: $myTransition;
+  background-color: $colorText_3;
+}
+
+@mixin background-style {
+  background: $myGradient;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: scroll;
+}
+
+// Styles
+// Reset
+*, 
+*::before, 
+*::after {
+  @include reset-list;
+}
+
+// Navigation
+.navbar-brand {
+  font-family: $fontFamily;
+  font-size: 20px;
+  font-weight: 700;
+  &:hover { color: $colorText_1; }
+}
+
+@media (min-width: 992px) {
+  .navbar-brand {
+    color: $colorText_2;
+  }
+}
+
+.nav-link {
+  padding: 0 16px;
+  color: $colorText_2;
+  font-family: $fontFamily;
+  &:hover { color: $colorText_1; }
+}
+
+// Header
+header {
+  height: 100vh;
+  min-height: 40rem;
+  padding-top: 4.5rem;
+  padding-bottom: 0;
+  @include background-style;
+}
+
+header {
+  h1 {
+    font-size: 3rem;
+    font-family: $fontFamily;
+  }
+  p {
+    color: $colorText_2;
+    font-size: 1.15rem;
+    font-family: $fontFamily;
+  }
+}
+
+.btn-xl {
+  @include button;
+  &:hover { background-color: #cf5331; }
+}
+
+hr {
+  color: inherit;
+  border: 0;
+  border-top: 1px solid;
+}
+
+.divider { @include horizontal-rule; }
+
+// About
+.page-section {
+  padding: 8rem 0;
+  h2 { font-family: $fontFamily; }
+  p { font-family: $fontFamily; color: #ffffffbf; }
+}
+
+.bg-primary {
+  background-color: $colorText_3 !important;
+}
+
+.divider-light {
+  @include horizontal-rule;
+  background-color: $colorText_1 !important;
+}
+
+.btn-light {
+  background-color: #f8f9fa;
+  &:hover { background-color: #d3d4d5; }
+}
+
+#submitButton {
+  opacity: 0.65;
+  pointer-events: none;
+  background-color: $colorText_3;
+}
